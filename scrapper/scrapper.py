@@ -341,9 +341,12 @@ class Journal(Chrome):
                 )
             except:
                 details[f"Image {i + 1} caption"] = None
-            details[f"Image {i + 1} Link"] = (
-                images[i].find_element(By.CSS_SELECTOR, "img").get_attribute("src")
-            )
+            try:
+                details[f"Image {i + 1} Link"] = (
+                    images[i].find_element(By.CSS_SELECTOR, "img").get_attribute("src")
+                )
+            except:
+                details[f"Image {i + 1} Link"] = None
 
 
         # Storing the number of tables
